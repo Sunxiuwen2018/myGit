@@ -70,3 +70,26 @@ git push origin master
 
 [markdown基础语法学习链接](https://github.com/younghz/Markdown "Markdown")
 ***
+
+## 本地已经存在的项目如何和github发生关联
+
+github新建repository
+解除原有仓库关联
+本地仓库与远程仓库解除关联 rm -rf .git 删除该仓库的工作树即可 第2、3步可以在第4步之后执行
+切换到本地项目地址 git init 初始化项目。该步骤会创建一个 .git文件夹是附属于该仓库的工作树。
+git init
+git add .
+git commit -m 'initial commit'
+git remote add origin git@github.com:xx/aaaaa.git
+
+这时候push一般会说reject，因为创建仓库的时候新建了readme文件，与原仓库文件发生了冲突。一个方法是创建的时候不要勾选创建readme，另一个方法是：
+
+git pull origin master
+git commit -a
+
+pull可能会出现冲突，自动合并也会出错，这时候要打开readme文件，里面会多了“<<<”“>>>>123”这样的符号， 就自行选择需要的，把这两行删除了。
+最后再：
+
+push -u origin master
+
+把本地项目push到远程github仓库
