@@ -168,5 +168,3 @@ pull可能会出现冲突，自动合并也会出错，这时候要打开readme�
 push -u origin master
 ```
 把本地项目push到远程github仓库
-
-KKKKKKKKKWELCOME TO
