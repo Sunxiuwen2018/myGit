@@ -29,6 +29,7 @@
     - git reflog 查看命令历史，可以查看到commit号，可以回到未来
     - git reset --hard HEAD^  回退到上一版本，HEAD^^ 上上版本， 可以一直^^^,HEAD指向的版本就是当前版本
     - 通过git reset --hard commit_id 结合log可以进行版本之间的切换
+    - 通过git rebase -i
 ```
 ## 管理修改
 ```
@@ -105,7 +106,41 @@ git tag <name><commit_id> 给指定的版本加标签
 git tag -d <name>
 ```
 
+### 远程仓库建立连接
+- SSH
+```git
+    1. 切换到主用户的家目录下，生成公钥私钥
 
+       `ssh-keygen -t rsa -C "youremail@example.com"`
+
+    2.  把生成的公钥放入GitHub账号的sshkey列表里
+
+    3. 建立连接【在本地】
+        git   remote   add  "远程仓库的别名"    "远程仓库的地址https/ssh"
+
+    4. 查看本地连接的所有的远程仓库
+        git    remote
+
+    5. 向远程仓库提交代码
+        git   push   -u   远程仓库别名     分支名
+
+        注意  -u   第一次提交代码的时候本地分支跟远程仓库的分支建立起连接
+
+    6. 从远程仓库拉代码
+
+        git  pull   远程仓库别名     分支名
+
+    7.  远程仓库的代码与最后一次push的代码有变化时，push会失败
+        --  先从远程仓库拉去代码
+        --  手动解决冲突
+        --  提交到本地仓库
+        -- git push  ……
+```
+
+###  克隆项目【将网上的仓库拉到本地】
+```
+    git   clone   远程仓库地址
+```
 
 
 
