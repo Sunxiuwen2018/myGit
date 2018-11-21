@@ -8,6 +8,19 @@
     - git add filename
     - git commit -m "说明"
 ```
+## git 三个状态切换[工作区、暂存区、本地仓库]
+
+    git add filename  从工作区添加到暂存区
+
+    git commit -m "说明"
+
+    gti chechout filename  丢弃工作区改变
+
+    git reset  filename   从暂存区退到工作区
+
+    git reset  --hard  commit_id  版本回退，丢弃修改内容
+
+    git reset  --soft  commit_id  版本回退，将内容放入暂存区
 ## 版本回退
 ```
     - git status 查看所有的修改状态
@@ -51,15 +64,60 @@ git checkout -- filename 就可恢复之前add后版本的状态，然后git com
 - 只要放到了暂存区无论是add还是commit或git rm了，都可以通过checkout恢复，唯一缺点是上次提交后的修改会丢失；
 - git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”;
 
+
+
+## 分支管理
+- 查看分支
+```
+git branch
+```
+- 创建分支
+```
+git branch  <name>
+```
+- 删除分支
+```
+git branch -d <name>
+```
+- 切换分支
+```
+git checkout <name>
+```
+- 合并分支
+```
+git merge <name>
+
+将name分支合并到当前分支，将子合到主
+-- 冲突只能手动解决
+-- 解决完冲突记得提交
+```
+## 标签管理
+- 查看标签
+```
+git tag
+```
+- 创建标签
+```
+git tag <name><commit_id> 给指定的版本加标签
+```
+- 删除标签
+```
+git tag -d <name>
+```
+
+
+
+
+
 ## 一、git上传异常解决
 
 使用Git上传本地文件到github时，一直报错，终于被解决。
 
-git add .
+    git add .
 
-git commit -m"peTzxz"
+    git commit -m"peTzxz"
 
-git push origin master
+    git push origin master
 
 当执行到push时，就会报错，报错代码如下：
 
@@ -111,28 +169,4 @@ push -u origin master
 ```
 把本地项目push到远程github仓库
 
-## 分支管理
-- 查看分支
-```
-git branch
-```
-- 创建分支
-```
-git branch  <name>
-```
-- 删除分支
-```
-git branch -d <name>
-```
-- 切换分支
-```
-git checkout <name>
-```
-- 合并分支
-```
-git merge <name>
 
-将name分支合并到当前分支，将子合到主
--- 冲突只能手动解决
--- 解决完冲突记得提交
-```
