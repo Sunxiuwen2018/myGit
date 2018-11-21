@@ -2,11 +2,15 @@
 ## 创建本地仓库，提交文件到从工作区到暂存区，并指向一个HEAD
 >下载安装本地gitbase
 ```
-    - mkdir test_repository
-    - cd test_repository
-    - git init
-    - git add filename
-    - git commit -m "说明"
+    mkdir test_repository
+
+    cd test_repository
+
+    git init
+
+    git add filename
+
+    git commit -m "说明"
 ```
 ## git 三个状态切换[工作区、暂存区、本地仓库]
 
